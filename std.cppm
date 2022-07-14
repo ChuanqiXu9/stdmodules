@@ -3,4 +3,8 @@ export import :coroutine;
 export import :string;
 export import :iostream;
 export import :numeric;
-
+export import :vector;
+export import :thread;
+export import :chrono;
+export import :map;
+export import :mutex;
