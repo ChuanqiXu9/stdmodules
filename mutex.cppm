@@ -4,4 +4,5 @@ export module std:mutex;
 export namespace std {
     using std::mutex;
     using std::lock_guard;
+    using std::memory_order;
 }

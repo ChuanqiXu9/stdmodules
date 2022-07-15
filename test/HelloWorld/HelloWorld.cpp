@@ -1,5 +1,4 @@
 import std;
-
 int main() {
     std::printf("Hello World.\n");
     // If you are linking libstdc++, then it would meet a segfault.

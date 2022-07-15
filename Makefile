@@ -3,8 +3,9 @@ STL_PATH=-isystem ../build_libcxx/include/c++/v1 -I../build_libcxx/include/x86_6
 INTERFACE_OPTION=--precompile -fprebuilt-module-path=.
 build: std.pcm libstd.a
 
-std.pcm: std.cppm coroutine.cppm numeric.cppm iostream.cppm string.cppm vector.cppm thread.cppm chrono.cppm\
-map.cppm mutex.cppm
+std.pcm: std.cppm coroutine.cppm numeric.cppm iostream.cppm string.cppm vector.cppm thread.cppm chrono.cppm \
+map.cppm mutex.cppm atomic.cppm random.cppm cstdio.cppm fstream.cppm memory.cppm stdexcept.cppm utility.cppm \
+array.cppm algorithm.cppm
 	clang++ -std=c++20 $(INTERFACE_OPTION) coroutine.cppm -o std-coroutine.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) numeric.cppm -o std-numeric.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) iostream.cppm -o std-iostream.pcm $(STL_PATH)
@@ -14,6 +15,15 @@ map.cppm mutex.cppm
 	clang++ -std=c++20 $(INTERFACE_OPTION) chrono.cppm -o std-chrono.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) map.cppm -o std-map.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) mutex.cppm -o std-mutex.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) atomic.cppm -o std-atomic.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) random.cppm -o std-random.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) cstdio.cppm -o std-cstdio.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) fstream.cppm -o std-fstream.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) memory.cppm -o std-memory.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) stdexcept.cppm -o std-stdexcept.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) utility.cppm -o std-utility.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) array.cppm -o std-array.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) algorithm.cppm -o std-algorithm.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) std.cppm -o std.pcm $(STL_PATH)
 
 libstd.a:std.pcm
@@ -26,9 +36,19 @@ libstd.a:std.pcm
 	clang++ -std=c++20 std-chrono.pcm -c -o std-chrono.o
 	clang++ -std=c++20 std-map.pcm -c -o std-map.o
 	clang++ -std=c++20 std-mutex.pcm -c -o std-mutex.o
+	clang++ -std=c++20 std-atomic.pcm -c -o std-atomic.o
+	clang++ -std=c++20 std-random.pcm -c -o std-random.o
+	clang++ -std=c++20 std-cstdio.pcm -c -o std-cstdio.o
+	clang++ -std=c++20 std-fstream.pcm -c -o std-fstream.o
+	clang++ -std=c++20 std-memory.pcm -c -o std-memory.o
+	clang++ -std=c++20 std-stdexcept.pcm -c -o std-stdexcept.o
+	clang++ -std=c++20 std-utility.pcm -c -o std-utility.o
+	clang++ -std=c++20 std-algorithm.pcm -c -o std-algorithm.o
+	clang++ -std=c++20 std-array.pcm -c -o std-array.o
 	clang++ -std=c++20 std.pcm -c -o std.o
 	llvm-ar crv libstd.a std-coroutine.o std-numeric.o std-iostream.o std-string.o std-vector.o \
-std-thread.o std-chrono.o std-map.o std-mutex.o std.o
+std-thread.o std-chrono.o std-map.o std-mutex.o std-atomic.o std-random.o std-cstdio.o std-fstream.o \
+std-memory.o std-stdexcept.o std-utility.o std-algorithm.o std-array.o std.o
 
 clean:
 	rm -f *.o *.out *.a
