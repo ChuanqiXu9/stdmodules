@@ -4,6 +4,7 @@ module;
 export module std:iostream;
 export namespace std {
     using std::cout;
+    using std::cerr;
     using std::endl;
     using std::printf;
     using std::boolalpha;

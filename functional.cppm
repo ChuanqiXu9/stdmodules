@@ -10,6 +10,8 @@ export namespace std {
     using std::cref;
 
     using std::mem_fn;
+
+    using std::operator==;
 }
 
 // FIXME: We couldn't export noninline-const variables.

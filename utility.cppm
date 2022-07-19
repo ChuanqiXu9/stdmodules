@@ -6,4 +6,7 @@ export namespace std {
     using std::swap;
     using std::forward;
     using std::exchange;
+    using std::pair;
+
+    using std::declval;
 }

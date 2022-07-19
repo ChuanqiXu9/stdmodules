@@ -6,4 +6,13 @@ export namespace std {
     using std::fclose;
     using std::fgetc;
     using std::FILE;
+
+    using std::fprintf;
+    using std::fflush;
+}
+
+export {
+    using ::stdin;
+    using ::stdout;
+    using ::stderr;
 }

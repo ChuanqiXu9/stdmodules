@@ -25,4 +25,15 @@ export namespace std {
     using std::aligned_union_t;
     
     using std::is_floating_point;
+
+    using std::integral_constant;
+    using std::false_type;
+    using std::true_type;
+
+    using std::remove_cv;
+    using std::remove_cv_t;
+    using std::remove_reference;
+
+    using std::decay;
+    using std::decay_t;
 }

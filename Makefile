@@ -5,7 +5,8 @@ build: std.pcm libstd.a
 
 std.pcm: std.cppm coroutine.cppm numeric.cppm iostream.cppm string.cppm vector.cppm thread.cppm chrono.cppm \
 map.cppm mutex.cppm atomic.cppm random.cppm cstdio.cppm fstream.cppm memory.cppm stdexcept.cppm utility.cppm \
-array.cppm algorithm.cppm functional.cppm type_traits.cppm cstdint.cppm exception.cppm iterator.cppm
+array.cppm algorithm.cppm functional.cppm type_traits.cppm cstdint.cppm exception.cppm iterator.cppm list.cppm \
+condition_variable.cppm queue.cppm cstdlib.cppm
 	clang++ -std=c++20 $(INTERFACE_OPTION) coroutine.cppm -o std-coroutine.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) numeric.cppm -o std-numeric.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) iostream.cppm -o std-iostream.pcm $(STL_PATH)
@@ -29,6 +30,10 @@ array.cppm algorithm.cppm functional.cppm type_traits.cppm cstdint.cppm exceptio
 	clang++ -std=c++20 $(INTERFACE_OPTION) cstdint.cppm -o std-cstdint.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) exception.cppm -o std-exception.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) iterator.cppm -o std-iterator.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) list.cppm -o std-list.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) condition_variable.cppm -o std-condition_variable.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) queue.cppm -o std-queue.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) cstdlib.cppm -o std-cstdlib.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) std.cppm -o std.pcm $(STL_PATH)
 
 libstd.a:std.pcm
@@ -55,11 +60,16 @@ libstd.a:std.pcm
 	clang++ -std=c++20 std-cstdint.pcm -c -o std-cstdint.o
 	clang++ -std=c++20 std-exception.pcm -c -o std-exception.o
 	clang++ -std=c++20 std-iterator.pcm -c -o std-iterator.o
+	clang++ -std=c++20 std-list.pcm -c -o std-list.o
+	clang++ -std=c++20 std-condition_variable.pcm -c -o std-condition_variable.o
+	clang++ -std=c++20 std-queue.pcm -c -o std-queue.o
+	clang++ -std=c++20 std-cstdlib.pcm -c -o std-cstdlib.o
 	clang++ -std=c++20 std.pcm -c -o std.o
 	llvm-ar crv libstd.a std-coroutine.o std-numeric.o std-iostream.o std-string.o std-vector.o \
 std-thread.o std-chrono.o std-map.o std-mutex.o std-atomic.o std-random.o std-cstdio.o std-fstream.o \
 std-memory.o std-stdexcept.o std-utility.o std-algorithm.o std-array.o std-functional.o std-type_traits.o \
-std-cstdint.o std-exception.o std-iterator.o std.o 
+std-cstdint.o std-exception.o std-iterator.o std-list.o std-condition_variable.o std-queue.o std-cstdlib.o \
+std.o 
 
 clean:
 	rm -f *.o *.out *.a

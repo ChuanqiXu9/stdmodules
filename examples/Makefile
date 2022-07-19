@@ -18,6 +18,13 @@ build:
 	cd function && make
 	cd invoke && make
 	cd is_same && make
+	cd condition_variable && make
+	cd iterator_traits && make
+	cd remove_cv && make
+	cd unique_lock && make
+	cd scoped_lock && make
+	cd rand && make
+	cd nullptr_t && make
 
 clean:
 	cd HelloWorld && make clean
@@ -39,3 +46,10 @@ clean:
 	cd function && make clean
 	cd invoke && make clean
 	cd is_same && make clean
+	cd condition_variable && make clean
+	cd iterator_traits && make clean
+	cd remove_cv && make clean
+	cd unique_lock && make clean
+	cd scoped_lock && make clean
+	cd rand && make clean
+	cd nullptr_t && make clean
