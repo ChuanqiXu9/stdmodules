@@ -10,6 +10,14 @@ build:
 	cd memory_order && make
 	cd unique_ptr && make
 	cd sort && make
+	cd duration && make
+	cd enable_if && make
+	cd exception_ptr && make
+	cd exchange && make
+	cd forward && make
+	cd function && make
+	cd invoke && make
+	cd is_same && make
 
 clean:
 	cd HelloWorld && make clean
@@ -23,3 +31,11 @@ clean:
 	cd memory_order && make clean
 	cd unique_ptr && make clean
 	cd sort && make clean
+	cd duration && make clean
+	cd enable_if && make clean
+	cd exception_ptr && make clean
+	cd exchange && make clean
+	cd forward && make clean
+	cd function && make clean
+	cd invoke && make clean
+	cd is_same && make clean

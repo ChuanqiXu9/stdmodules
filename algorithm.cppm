@@ -4,4 +4,5 @@ export module std:algorithm;
 export namespace std {
     using std::sort;
     using std::reverse_copy;
+    using std::copy;
 }

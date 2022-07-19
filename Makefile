@@ -5,7 +5,7 @@ build: std.pcm libstd.a
 
 std.pcm: std.cppm coroutine.cppm numeric.cppm iostream.cppm string.cppm vector.cppm thread.cppm chrono.cppm \
 map.cppm mutex.cppm atomic.cppm random.cppm cstdio.cppm fstream.cppm memory.cppm stdexcept.cppm utility.cppm \
-array.cppm algorithm.cppm
+array.cppm algorithm.cppm functional.cppm type_traits.cppm cstdint.cppm exception.cppm iterator.cppm
 	clang++ -std=c++20 $(INTERFACE_OPTION) coroutine.cppm -o std-coroutine.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) numeric.cppm -o std-numeric.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) iostream.cppm -o std-iostream.pcm $(STL_PATH)
@@ -24,6 +24,11 @@ array.cppm algorithm.cppm
 	clang++ -std=c++20 $(INTERFACE_OPTION) utility.cppm -o std-utility.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) array.cppm -o std-array.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) algorithm.cppm -o std-algorithm.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) functional.cppm -o std-functional.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) type_traits.cppm -o std-type_traits.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) cstdint.cppm -o std-cstdint.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) exception.cppm -o std-exception.pcm $(STL_PATH)
+	clang++ -std=c++20 $(INTERFACE_OPTION) iterator.cppm -o std-iterator.pcm $(STL_PATH)
 	clang++ -std=c++20 $(INTERFACE_OPTION) std.cppm -o std.pcm $(STL_PATH)
 
 libstd.a:std.pcm
@@ -45,12 +50,18 @@ libstd.a:std.pcm
 	clang++ -std=c++20 std-utility.pcm -c -o std-utility.o
 	clang++ -std=c++20 std-algorithm.pcm -c -o std-algorithm.o
 	clang++ -std=c++20 std-array.pcm -c -o std-array.o
+	clang++ -std=c++20 std-functional.pcm -c -o std-functional.o
+	clang++ -std=c++20 std-type_traits.pcm -c -o std-type_traits.o
+	clang++ -std=c++20 std-cstdint.pcm -c -o std-cstdint.o
+	clang++ -std=c++20 std-exception.pcm -c -o std-exception.o
+	clang++ -std=c++20 std-iterator.pcm -c -o std-iterator.o
 	clang++ -std=c++20 std.pcm -c -o std.o
 	llvm-ar crv libstd.a std-coroutine.o std-numeric.o std-iostream.o std-string.o std-vector.o \
 std-thread.o std-chrono.o std-map.o std-mutex.o std-atomic.o std-random.o std-cstdio.o std-fstream.o \
-std-memory.o std-stdexcept.o std-utility.o std-algorithm.o std-array.o std.o
+std-memory.o std-stdexcept.o std-utility.o std-algorithm.o std-array.o std-functional.o std-type_traits.o \
+std-cstdint.o std-exception.o std-iterator.o std.o 
 
 clean:
 	rm -f *.o *.out *.a
 	rm -f *.pcm
-	cd test && make clean
+	cd examples && make clean

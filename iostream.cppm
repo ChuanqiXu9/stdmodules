@@ -10,5 +10,6 @@ export namespace std {
     using std::noboolalpha;
     using std::setw;
     using std::flush;
+    using std::ostream;
     using std::operator<<;
 }
