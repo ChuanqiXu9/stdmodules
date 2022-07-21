@@ -36,4 +36,22 @@ export namespace std {
 
     using std::decay;
     using std::decay_t;
+
+    using std::is_convertible;
+    using std::is_convertible_v;
+
+    using std::is_nothrow_constructible;
+    using std::is_nothrow_constructible_v; 
+
+    using std::is_void;
+    using std::is_void_v;
+
+    using std::conditional;
+    using std::conditional_t;
+
+    using std::is_invocable;
+    using std::is_nothrow_invocable;
+
+    using std::invoke_result;
+    using std::invoke_result_t;
 }

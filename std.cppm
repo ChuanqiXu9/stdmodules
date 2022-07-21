@@ -26,3 +26,6 @@ export import :list;
 export import :condition_variable;
 export import :queue;
 export import :cstdlib;
+export import :tuple;
+export import :initializer_list;
+export import :limits;

@@ -25,6 +25,10 @@ build:
 	cd scoped_lock && make
 	cd rand && make
 	cd nullptr_t && make
+	cd tuple && make
+	cd allocator && make
+	cd initializer_list && make
+	cd limit && make
 
 clean:
 	cd HelloWorld && make clean
@@ -53,3 +57,7 @@ clean:
 	cd scoped_lock && make clean
 	cd rand && make clean
 	cd nullptr_t && make clean
+	cd tuple && make clean
+	cd allocator && make clean
+	cd initializer_list && make clean
+	cd limit && make clean
