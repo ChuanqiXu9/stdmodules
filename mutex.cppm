@@ -10,6 +10,4 @@ export namespace std {
     inline constexpr std::try_to_lock_t try_to_lock_in_modules = std::try_to_lock;
     using std::unique_lock;
     using std::scoped_lock;
-
-    using std::memory_order;
 }

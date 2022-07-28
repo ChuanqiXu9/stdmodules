@@ -11,6 +11,7 @@ export namespace std {
     
     using std::operator+;
     using std::operator<;
+    using std::operator<=>;
 
     inline namespace literals {
         using std::literals::operator""s;

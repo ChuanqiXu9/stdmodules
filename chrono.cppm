@@ -5,15 +5,28 @@ export module std:chrono;
 export namespace std {
     namespace chrono {
         using std::chrono::seconds;
+        using std::chrono::nanoseconds;
         using std::chrono::milliseconds;
         using std::chrono::microseconds;
         using std::chrono::duration;
         using std::chrono::duration_cast;
+
         using std::chrono::operator>;
+        using std::chrono::operator>=;
         using std::chrono::operator<;
+        using std::chrono::operator<=;
+        using std::chrono::operator==;
+
+        using std::chrono::operator+;
+        using std::chrono::operator-;
+
         using std::chrono::weeks;
         using std::chrono::years;
         using std::chrono::minutes;
+
+        using std::chrono::time_point;
+
+        using std::chrono::high_resolution_clock;
     }
 }
 export namespace std {
