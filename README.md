@@ -41,12 +41,6 @@ instead of
 std::lock_guard lk(mutex);
 ```
 
-##### PreferredName attribute
-
-Currently, Clang doesn't take care of preferredname attribute in C++20 Modules. And libcxx uses it 
-somewhere and it blocks us to modularize libcxx in this style. We skip the problem by a macro trick
-` -D__preferred_name__=__nonexistingattribute__` currently.
-
 ##### Non Inline constexpr variables
 
 See functional.cppm for example. The standard forbids us to export using const things unless they are inlined.

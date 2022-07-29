@@ -2,7 +2,7 @@
 STL_PATH=-isystem ../build_libcxx/include/c++/v1 -I../build_libcxx/include/x86_64-unknown-linux-gnu/c++/v1 -nostdinc++
 # Default PATH leads to LIBSTDCXX
 #STL_PATH=
-INTERFACE_OPTION=--precompile -fprebuilt-module-path=. -D__preferred_name__=__nonexistingattribute__
+INTERFACE_OPTION=--precompile -fprebuilt-module-path=.
 
 build: std.pcm libstd.a
 
